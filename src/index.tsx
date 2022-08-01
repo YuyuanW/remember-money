@@ -1,16 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import styled from 'styled-components'; //引用styled
+//css in js
+import TomatoButton from 'components/ToButton';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div>
+    <App></App>
+  </div>
+  // <div>
+  // {/* <React.StrictMode> */}
+  //   <App />
+  // {/* </React.StrictMode> */}
+  // {/* //使用styled
+  // <div>halo 
+  //   <TomatoButton>hi~</TomatoButton>
+  // </div>
+  // </div> */}
 );
 
 // If you want to start measuring performance in your app, pass a function
