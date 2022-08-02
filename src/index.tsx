@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import styled from 'styled-components'; //引用styled
 //css in js
-import TomatoButton from 'components/ToButton';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

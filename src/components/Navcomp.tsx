@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Icon from './Icon';
 
+console.log(Icon)
+
 // import chart from 'icons/chart.svg';
 // import money from 'icons/money.svg';
 // import tags from 'icons/tags.svg';

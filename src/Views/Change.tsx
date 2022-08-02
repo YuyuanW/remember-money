@@ -1,9 +1,131 @@
 import Layout from "components/Layout";
+import styled from "styled-components";
 
+const TagsSection = styled.section`
+/* border:1px solid red; */
+height: 30vh;
+background: #FFFFFF;
+> ol{
+  display: flex;
+  >li {
+    
+    /* 字体设置 */
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #484848;
+    
+
+    /* 盒模型构建 */
+    line-height: 22px;
+    padding : 1px 18px;
+    margin: 16px 12px;
+    background-color:  #D9D9D9;;
+
+    /* 变形 */
+    border-radius: 18px;
+  }
+}
+> button{
+  /* 字体设置 */
+  font-family: 'Source Han Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #999999;
+
+  text-align: center;
+  border-style:none;
+  border-bottom: 1px solid #999999;
+  background-color: #FFFFFF;
+  padding: 1px 6px;
+  margin-left: 12px;
+}
+`
+const NoteSection = styled.section`
+background: #F5F5F5;
+display: flex;
+flex-direction: row;
+>span{
+  font-family: 'Source Han Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333333;
+
+  padding: 26px 16px;
+}
+>label {
+  flex-grow: 1;
+  >input{
+  border: none;
+  color: #999999;
+  background-color: #F5F5F5;
+  
+  height: 100%;
+}
+}
+
+`
+
+const CategorySection = styled.section``
+
+const NumberSection = styled.section``
 function Change() {
     return  (
       <Layout>
-        <h2>change</h2>
+        <TagsSection>
+          <ol>
+            <li>衣</li>
+            <li>食</li>
+            <li>住</li>
+            <li>行</li>
+          </ol>
+          <button>新增标签</button>
+        </TagsSection>
+        <NoteSection>
+          <span>备注</span>
+          
+          <label>
+            <input type="text" placeholder='在这里新增备注'/>
+          </label>
+        </NoteSection>
+        <CategorySection>
+          <ul>
+            <li>支出</li>
+            <li>收入</li>
+          </ul>
+        </CategorySection>
+
+        <NumberSection>
+          <div>100</div>
+          <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>删除</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>清空</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>×</button>
+            <button>OK</button>
+            <button>0</button>
+            <button>.</button>
+            <button>%</button>
+            <button>÷</button>
+            <button>OK</button>
+          </div>
+        </NumberSection>
       </Layout>
     );
 }
