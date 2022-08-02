@@ -10,6 +10,10 @@ import {
 // import styled from "styled-components";
 
 import Layout from "components/Layout";
+import Tags from "Views/Tags";
+import Change from "Views/Change";
+import Money from "Views/Money";
+import NoMatch from "Views/NoMatch";
 
 
 
@@ -37,33 +41,13 @@ function App() {
   );
 }
 
-function NoMatch(){
-  return <h2>你再检查检查输入的路径呗~</h2>
-}
 
-function Tags() {
-  return (
-    <Layout>
-      <h2>tag</h2>
-    </Layout>
-  );
-}
 
-function Change() {
-  return  (
-    <Layout>
-      <h2>change</h2>
-    </Layout>
-  );
-}
 
-function Money() {
-  return  (
-    <Layout>
-      <h2>money</h2>
-    </Layout>
-  );
-}
+
+
+
+
 
 
 
