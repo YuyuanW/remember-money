@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import Icon from './Icon';
 
 // import chart from 'icons/chart.svg';
@@ -20,36 +20,45 @@ const NavCom = styled.nav`
     /* width: 33.33%; */
     flex-grow:1;
     text-align: center;
-    padding: 8px;
+    padding: 4px;
     font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+   
+    > a{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .selected{
+      color : red;
+      > svg {
+        fill : red;
+      }
+    }
+  }
+  svg{
+    width:24px;
+    height:24px
   }
  }
 `
-
-
 const Nav = ()=>{
-    return (
-        <NavCom>
-          <ul>
-            <li>
-              <Icon name={'tags'}></Icon>
-              <Link to="/tags"><strong>标签</strong></Link>
-            </li>
-            <li>
-            <Icon name={'money'}></Icon>
-              <Link to="/change"><strong>记账</strong></Link>
-            </li>
-            <li>
-            <Icon name={'chart'}></Icon>
-              <Link to="/money"><strong>统计</strong></Link>
-            </li>
-          </ul>
-        </NavCom>
-    )
+  return (
+    <NavCom>
+      <ul>
+        <li>
+          <NavLink to="/tags" activeClassName="selected"><Icon name={'tags'}></Icon><strong>标签</strong></NavLink>
+        </li>
+        <li>
+            <NavLink to="/change" activeClassName="selected"><Icon name={'money'}></Icon><strong>记账</strong></NavLink>
+        </li>
+        <li>
+          <NavLink to="/money" activeClassName="selected"><Icon name={'chart'}></Icon><strong>统计</strong></NavLink>
+        </li>
+      </ul>
+    </NavCom>
+  )
 }
 
 export default Nav;
