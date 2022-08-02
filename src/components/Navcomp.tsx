@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import Icon from './Icon';
+
 // import chart from 'icons/chart.svg';
 // import money from 'icons/money.svg';
 // import tags from 'icons/tags.svg';
 // console.log(chart,money,tags);
 
-require('icons/chart.svg');
-require('icons/money.svg');
-require('icons/tags.svg')
+
 
 const NavCom = styled.nav`
   line-height: 24px;
@@ -29,26 +29,22 @@ const NavCom = styled.nav`
   }
  }
 `
+
+
 const Nav = ()=>{
     return (
         <NavCom>
           <ul>
             <li>
-              <svg>
-                <use xlinkHref="#tags"/> 
-              </svg>
+              <Icon name={'tags'}></Icon>
               <Link to="/tags"><strong>标签</strong></Link>
             </li>
             <li>
-              <svg> 
-                <use xlinkHref="#money"/>
-              </svg>
+            <Icon name={'money'}></Icon>
               <Link to="/change"><strong>记账</strong></Link>
             </li>
             <li>
-              <svg>
-                <use xlinkHref="#chart"/>
-              </svg>
+            <Icon name={'chart'}></Icon>
               <Link to="/money"><strong>统计</strong></Link>
             </li>
           </ul>
