@@ -7,27 +7,16 @@ import {
   Redirect
 } from "react-router-dom";
 
-import styled from "styled-components";
-import Nav from 'components/Navcomp';
+// import styled from "styled-components";
 
-const Div = styled.div`
+import Layout from "components/Layout";
 
-height: 100vh;
-display: flex;
-flex-direction: column;
-
-`
-
-const Content = styled.div`
-flex-grow: 1;  //用增长系数来分配剩余空间
-`
 
 
 function App() {
   return (
     <HashRouter>
-      <Div>
-        <Content>
+      <div>
           <Switch>
             <Route path="/tags">
               <Tags />
@@ -43,9 +32,7 @@ function App() {
               <NoMatch />
             </Route>
           </Switch>
-        </Content>
-        <Nav/>
-      </Div>
+      </div>
     </HashRouter>
   );
 }
@@ -55,15 +42,27 @@ function NoMatch(){
 }
 
 function Tags() {
-  return <h2>tag</h2>;
+  return (
+    <Layout>
+      <h2>tag</h2>
+    </Layout>
+  );
 }
 
 function Change() {
-  return <h2>change</h2>;
+  return  (
+    <Layout>
+      <h2>change</h2>
+    </Layout>
+  );
 }
 
 function Money() {
-  return <h2>money</h2>;
+  return  (
+    <Layout>
+      <h2>money</h2>
+    </Layout>
+  );
 }
 
 
