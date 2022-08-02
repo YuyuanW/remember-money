@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import chart from 'icons/chart.svg';
-import money from 'icons/money.svg';
-import tags from 'icons/tags.svg';
-console.log(chart,money,tags)
+// import chart from 'icons/chart.svg';
+// import money from 'icons/money.svg';
+// import tags from 'icons/tags.svg';
+// console.log(chart,money,tags);
+
+require('icons/chart.svg');
+require('icons/money.svg');
+require('icons/tags.svg')
 
 const NavCom = styled.nav`
   line-height: 24px;
