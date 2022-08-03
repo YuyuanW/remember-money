@@ -27,7 +27,7 @@ const _NoteSection = styled.section`
     }
   }
 `
-const NoteSection = ()=>{
+const NoteSection:React.FC = ()=>{
     const [note,setNode] = React.useState<string>('')
     console.log(note)
     return (
