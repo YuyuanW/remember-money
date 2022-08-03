@@ -6,7 +6,7 @@ import React from 'react';
 
 //导入文件夹
 let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
-try {importAll(require.context('.../scripts/icons', true, /\.svg$/));} catch (error) {console.log(error);}
+try {importAll(require.context('../iconsSVG', true, /\.svg$/));} catch (error) {console.log(error);}
 
 type Props = { name: string; }
 
