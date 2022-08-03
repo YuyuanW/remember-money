@@ -52,7 +52,7 @@ const CategorySection:React.FC = ()=>{
       <ul>
         {cateList.map(
           c=>
-          <li className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
+          <li key={c} className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
             {hash[c]}
           </li>
       )}
