@@ -1,7 +1,7 @@
 import styled from "styled-components";
+import React from "react";
 
-
-const CategorySection = styled.section`
+const _CategorySection = styled.section`
   background-color: rgb(196,196,196);
   > ul {
     display: flex;
@@ -42,4 +42,22 @@ const CategorySection = styled.section`
   }
 
 `
+
+const CategorySection:React.FC = ()=>{
+  const [cateList] = React.useState<('-'|'+')[]>(['-','+'])
+  const hash = {'-':'支出','+':'收入'}
+  const [cateStatus,setStatus] = React.useState('-')
+  return (
+    <_CategorySection>
+      <ul>
+        {cateList.map(
+          c=>
+          <li className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
+            {hash[c]}
+          </li>
+      )}
+      </ul>
+    </_CategorySection>
+  )
+}
 export default CategorySection;

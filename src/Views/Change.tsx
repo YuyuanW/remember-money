@@ -18,13 +18,7 @@ function Change() {
         <Div>
           <TagsSection />
           <NoteSection />
-
-          <CategorySection>
-            <ul>
-              <li >支出</li>
-              <li className="selected">收入</li>
-            </ul>
-          </CategorySection>
+          <CategorySection />
 
           <NumberSection>
             <div className="output">100</div>
