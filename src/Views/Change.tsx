@@ -23,13 +23,16 @@ function Change() {
       amount : 0
     }
   )
+  const change = (value:Partial<typeof state>)=>{
+    setState({...state,...value})
+  }
     return  (
       <Layout>
         <Div>
-          <TagsSection selected={state.tags} onChange={(tags)=>setState({...state,tags})} />
-          <NoteSection notes = {state.notes} onChange={(notes)=>setState({...state,notes})}/>
-          <CategorySection cate={state.cate} onChange={(cate)=>setState({...state,cate})}/>
-          <NumberSection amount={state.amount} onChange={(amount)=>setState({...state,amount})}/>
+          <TagsSection selected={state.tags} onChange={(tags)=>change({tags})} />
+          <NoteSection notes = {state.notes} onChange={(notes)=>change({notes})}/>
+          <CategorySection cate={state.cate} onChange={(cate)=>change({cate})}/>
+          <NumberSection amount={state.amount} onChange={(amount)=>change({amount})}/>
           
         </Div>
       </Layout>
