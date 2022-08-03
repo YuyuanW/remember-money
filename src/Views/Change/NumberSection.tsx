@@ -65,6 +65,17 @@ const _NumberSection = styled.section`
 
 const NumberSection:React.FC = ()=>{
   const [number,setNum] = React.useState<string>('0')
+  const numLength = (outProps:string)=>{
+    if(outProps.length > 16){
+      outProps = outProps.slice(0,17)
+    }else if(outProps.length===0){
+      outProps = '0'
+    }
+    setNum(outProps)
+  }
+
+
+  
   const clickButton = (e:React.MouseEvent)=>{
     const text =  (e.target as  HTMLButtonElement).textContent
     if(!text){return}
@@ -80,19 +91,19 @@ const NumberSection:React.FC = ()=>{
       case '8' :
       case '9' :
         if(number==='0'){
-          setNum(text)
+          numLength(text)
         }
-        else{setNum(number+text)}
+        else{numLength(number+text)}
         break;
       case '.' : 
-        if(number.indexOf('.') < 0){setNum(number+text)}
+        if(number.indexOf('.') < 0){numLength(number+text)}
         break;
       case '删除':
-        if(number.length>1){setNum(number.slice(0,-1))}
-        else{setNum('0')}
+        if(number.length>1){numLength(number.slice(0,-1))}
+        else{numLength('')}
         break;
       case '清空':
-        setNum('0')
+        numLength('')
         break;
       case 'OK':
         console.log('确认')
