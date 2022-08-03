@@ -42,11 +42,16 @@ const _CategorySection = styled.section`
   }
 
 `
-
-const CategorySection:React.FC = ()=>{
+type Props = {
+  cate : '+'|'-',
+  onChange : (cate:'-'|'+')=>void
+}
+const CategorySection:React.FC<Props> = (props)=>{
   const [cateList] = React.useState<('-'|'+')[]>(['-','+'])
   const hash = {'-':'支出','+':'收入'}
-  const [cateStatus,setStatus] = React.useState('-')
+  // const [cateStatus,setStatus] = React.useState('-')
+  const cateStatus = props.cate;
+  const setStatus = props.onChange;
   return (
     <_CategorySection>
       <ul>

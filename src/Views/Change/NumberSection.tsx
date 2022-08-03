@@ -3,21 +3,32 @@ import React from "react";
 import _NumberSection from "./NumberSec/_NumberSection";
 import { switcher } from "./switch";
 
-const NumberSection:React.FC = ()=>{
-  const [number,setNum] = React.useState<string>('0')
+
+type Props = {
+  amount : number,
+  onChange : (amount:number)=>void
+}
+
+const NumberSection:React.FC<Props> = (props)=>{
+  const number = props.amount.toString()
+  const setNum = props.onChange
   const numLength = (outProps:string)=>{
+    let value
     if(outProps.length > 16){
-      outProps = outProps.slice(0,17)
+      value = parseFloat(outProps.slice(0,17))
     }else if(outProps.length===0){
-      outProps = '0'
-    }
-    setNum(outProps)
+      value = 0
+    }else{
+      console.log(outProps) //存在小数点消失的问题
+      value = parseFloat(outProps)
+    } 
+    setNum(value)
   }
 
   const clickButton = (e:React.MouseEvent)=>{
     const text =  (e.target as  HTMLButtonElement).textContent
     if(!text){return}
-    if('0123456789.'.split('').concat(['删除','清空','OK']).indexOf(text) >=0){
+    if('0123456789'.split('').concat(['删除','清空','OK','.']).indexOf(text) >=0){
       numLength(switcher(text,number)!)
     }
     

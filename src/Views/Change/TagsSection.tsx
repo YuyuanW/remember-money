@@ -58,9 +58,12 @@ const _TagsSection = styled.section`
   margin-bottom: 12px;
   }
 `
-const TagsSection:React.FC = ()=>{
+
+type Props = {selected:string[],onChange:(selected:string[])=>void}
+const TagsSection:React.FC<Props> = (props)=>{
     const [tags,setTags] = React.useState<string[]>(['衣','食','住','行']) 
-    const [tagsLight,setLight] = React.useState<string[]>([])
+    const tagsLight = props.selected
+    const setLight = props.onChange
     const newTag = ()=>{
         const tag = window.prompt('新标签为：')
         if(tag===''){

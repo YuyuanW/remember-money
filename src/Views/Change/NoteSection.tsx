@@ -27,9 +27,15 @@ const _NoteSection = styled.section`
     }
   }
 `
-const NoteSection:React.FC = ()=>{
-    const [note,setNode] = React.useState<string>('')
-    console.log(note)
+
+type Props = {
+  notes:string,
+  onChange:(notes:string)=>void
+}
+
+const NoteSection:React.FC<Props> = (props)=>{
+    const note = props.notes
+    const setNode = props.onChange
     return (
         <_NoteSection>
             <label>
