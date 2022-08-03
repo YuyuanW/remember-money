@@ -10,7 +10,6 @@ const Div =styled.div`
   /* border:5px solid yellow; */
   display: flex;
   flex-direction: column;
-
 `
 
 function Change() {
@@ -18,12 +17,8 @@ function Change() {
       <Layout>
         <Div>
           <TagsSection />
-          <NoteSection>
-            <label>
-              <span>备注</span>
-              <input type="text" placeholder='在这里新增备注'/>
-            </label>
-          </NoteSection>
+          <NoteSection />
+
           <CategorySection>
             <ul>
               <li >支出</li>

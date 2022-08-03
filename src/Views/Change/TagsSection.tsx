@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 const _TagsSection = styled.section`
   /* border:1px solid red; */
-  max-height: 30vh;
+  max-height: 50vh;
   flex-grow:1;
   display: flex;
   flex-direction: column;
