@@ -9,7 +9,7 @@ import {
 
 // import styled from "styled-components";
 
-import Layout from "components/Layout";
+// import Layout from "components/Layout";
 import Tags from "Views/Tags";
 import Change from "Views/Change";
 import Money from "Views/Money";

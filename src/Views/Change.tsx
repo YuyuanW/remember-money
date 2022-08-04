@@ -17,7 +17,7 @@ type Cate = '-' | '+'
 function Change() {
   const [state,setState] = React.useState(
     {
-      tags:[] as string[],
+      tagsId:[] as number[],
       notes:'',
       cate : '-' as Cate,
       amount : 0
@@ -29,7 +29,7 @@ function Change() {
     return  (
       <Layout>
         <Div>
-          <TagsSection selected={state.tags} onChange={(tags)=>change({tags})} />
+          <TagsSection selected={state.tagsId} onChange={(tagsId)=>change({tagsId})} />
           <NoteSection notes = {state.notes} onChange={(notes)=>change({notes})}/>
           <CategorySection cate={state.cate} onChange={(cate)=>change({cate})}/>
           <NumberSection amount={state.amount} onChange={(amount)=>change({amount})}/>

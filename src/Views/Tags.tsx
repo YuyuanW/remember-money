@@ -75,8 +75,8 @@ function Tags() {
       <OlDiv>
         <ol>
           
-          {tags.map(tag=><li key={tag} className='oneLine'>
-            <Link to={'/tags/'+tag}><span>{tag}</span><Icon name="right" /></Link>
+          {tags.map(tag=><li key={tag.id} className='oneLine'>
+            <Link to={'/tags/'+tag}><span>{tag.name}</span><Icon name="right" /></Link>
             </li>)}
         </ol>
         <Button><span>新建标签</span></Button>

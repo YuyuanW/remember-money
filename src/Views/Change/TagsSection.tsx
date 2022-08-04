@@ -60,7 +60,7 @@ const _TagsSection = styled.section`
   }
 `
 
-type Props = {selected:string[],onChange:(selected:string[])=>void}
+type Props = {selected:number[],onChange:(selected:number[])=>void}
 const TagsSection:React.FC<Props> = (props)=>{
     const {tags,setTags} = useTags() 
     const tagsLight = props.selected
@@ -70,21 +70,21 @@ const TagsSection:React.FC<Props> = (props)=>{
         if(tag===''){
             window.confirm('标签不能为空，请重新输入！')
         }else if(tag!==null){
-            setTags([...tags,tag])
+            setTags([...tags,{id:Math.random(),name:tag}])
         }
     }
-    const Light = (tag: string)=>{
-        if(tagsLight.indexOf(tag)>=0){ setLight(tagsLight.filter(t=>t!==tag))  }
-        else{setLight([...tagsLight,tag])}
+    const Light = (tagId: number)=>{
+        if(tagsLight.indexOf(tagId)>=0){ setLight(tagsLight.filter(t=>t!==tagId))  }
+        else{setLight([...tagsLight,tagId])}
     }
     return (
         <_TagsSection>
             <ol>
               {tags.map(
-                tag=><li key={tag} 
-                onClick={()=>{Light(tag)}}
-                className={tagsLight.indexOf(tag)>=0 ? 'selected' : ''}
-                >{tag}</li>)}
+                tag=><li key={tag.id} 
+                onClick={()=>{Light(tag.id)}}
+                className={tagsLight.indexOf(tag.id)>=0 ? 'selected' : ''}
+                >{tag.name}</li>)}
             </ol>
             <button onClick={newTag}>新增标签</button>
         </_TagsSection>
