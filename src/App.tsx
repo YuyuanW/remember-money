@@ -14,6 +14,7 @@ import Tags from "Views/Tags";
 import Change from "Views/Change";
 import Money from "Views/Money";
 import NoMatch from "Views/NoMatch";
+import TagEdit from "Views/Tags/TagEdit";
 
 
 
@@ -22,13 +23,16 @@ function App() {
     <HashRouter>
       <div>
           <Switch>
-            <Route path="/tags">
+          <Route exact path="/tags/:tag">
+              <TagEdit />
+            </Route>
+            <Route exact path="/tags">
               <Tags />
             </Route>
-            <Route path="/change">
+            <Route exact path="/change">
               <Change />
             </Route>
-            <Route path="/money">
+            <Route exact path="/money">
               <Money />
             </Route>
             <Redirect exact from='/' to="/change" />
