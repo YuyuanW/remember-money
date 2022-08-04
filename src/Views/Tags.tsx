@@ -1,11 +1,15 @@
 import Layout from "components/Layout";
+import useTags from "./Tags/useTags";
 
 
 function Tags() {
-    return (
-      <Layout>
-        <h2>tag</h2>
-      </Layout>
-    );
+  const {tags,setTags} = useTags() 
+  return (
+    <Layout>
+      <ol>
+        {tags.map(tag=><li key={tag}>{tag}</li>)}
+      </ol>
+    </Layout>
+  );
 }
 export default Tags;

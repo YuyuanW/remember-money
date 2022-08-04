@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import useTags from "Views/Tags/useTags";
 const _TagsSection = styled.section`
   /* border:1px solid red; */
   max-height: 50vh;
@@ -61,7 +62,7 @@ const _TagsSection = styled.section`
 
 type Props = {selected:string[],onChange:(selected:string[])=>void}
 const TagsSection:React.FC<Props> = (props)=>{
-    const [tags,setTags] = React.useState<string[]>(['衣','食','住','行']) 
+    const {tags,setTags} = useTags() 
     const tagsLight = props.selected
     const setLight = props.onChange
     const newTag = ()=>{
