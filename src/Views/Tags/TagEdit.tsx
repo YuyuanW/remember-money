@@ -12,6 +12,8 @@ import {
 import Icon from "components/Icon";
 import Button from "lib/Button";
 import styled from "styled-components";
+import Input from "lib/Input";
+import Tags from "Views/Tags";
 
 const TopBar = styled.div`
     display: flex;
@@ -56,10 +58,9 @@ const TagEdit = ()=>{
                 <Icon></Icon>
             </TopBar>
             </header>
-            <label>
-              <span>标签名</span>
-              <input type="text" placeholder={tag.name}/>
-            </label>
+           <Input label='标签名' type="text" 
+                value={tag.name}
+                onChange={()=>{}}></Input>
             <Button>删除标签</Button>
         </Layout>
     )

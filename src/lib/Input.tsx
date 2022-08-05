@@ -33,7 +33,7 @@ const Input:React.FC<Props> = (props)=>{
     const {label,children,...rest}  = props
     return (
         <Label>
-              <span>备注</span>
+              <span>{props.label}</span>
               <input {...rest} />
         </Label>
     )
