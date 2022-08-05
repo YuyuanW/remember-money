@@ -97,9 +97,9 @@ type Params = {
 }
 
 const TagEdit = ()=>{
-    const {findId} = useTags();
+    const {findTag,tagEdit} = useTags();
     let { id } = useParams<Params>(); 
-    const tag  = findId(parseInt(id))
+    const tag  = findTag(parseInt(id))
     return (
         <Layout>
             <ButtonStyle>
@@ -114,8 +114,7 @@ const TagEdit = ()=>{
 
            <Input label='标签名' type="text" 
                 value={tag.name}
-                onChange={()=>{}}>
-                
+                onChange={(e)=>{tagEdit(tag.id,{name:e.target.value})}}>
             </Input>
             
             </InputStyle>
