@@ -24,16 +24,18 @@ const useTags = ()=>{
         }
     }
     const tagEdit = (id:number,obj:{name:string})=>{
-        const index = findIndex(id)
-        const tagsClone =   JSON.parse(JSON.stringify(tags))  
-        tagsClone.splice(index,1,{id:id,name:obj.name})
-        setTags(tagsClone)
+        setTags(tags.map(t=>(t.id===id?{id:t.id,name:obj.name}:t)))
+        // const index = findIndex(id)
+        // const tagsClone =   JSON.parse(JSON.stringify(tags))  
+        // tagsClone.splice(index,1,{id:id,name:obj.name})
+        // setTags(tagsClone)
     }
     const deleteTag = (id:number)=>{
-        const index = findIndex(id)
-        const tagsClone =   JSON.parse(JSON.stringify(tags))  
-        tagsClone.splice(index,1)
-        setTags(tagsClone)
+        setTags(tags.filter(t=>t.id!==id))
+        // const index = findIndex(id)
+        // const tagsClone =   JSON.parse(JSON.stringify(tags))  
+        // tagsClone.splice(index,1)
+        // setTags(tagsClone)
     }
     return {tags,setTags,findTag,findIndex,tagEdit,deleteTag}
 }
