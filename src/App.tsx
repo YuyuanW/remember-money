@@ -23,7 +23,7 @@ function App() {
     <HashRouter>
       <div>
           <Switch>
-          <Route exact path="/tags/:tag">
+          <Route exact path="/tags/:id">
               <TagEdit />
             </Route>
             <Route exact path="/tags">

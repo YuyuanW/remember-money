@@ -74,9 +74,8 @@ function Tags() {
     <Layout>
       <OlDiv>
         <ol>
-          
           {tags.map(tag=><li key={tag.id} className='oneLine'>
-            <Link to={'/tags/'+tag}><span>{tag.name}</span><Icon name="right" /></Link>
+            <Link to={'/tags/'+tag.id}><span>{tag.name}</span><Icon name="right" /></Link>
             </li>)}
         </ol>
         <Button><span>新建标签</span></Button>

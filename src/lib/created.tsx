@@ -1,5 +1,4 @@
 
-
 let id = 0
 
 const create =()=>{
@@ -8,29 +7,3 @@ const create =()=>{
 }
 
 export default create;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
