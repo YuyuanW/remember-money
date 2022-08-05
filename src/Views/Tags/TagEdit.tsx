@@ -101,27 +101,34 @@ const TagEdit = ()=>{
     const {findTag,tagEdit,deleteTag} = useTags();
     let { id } = useParams<Params>(); 
     const tag  = findTag(parseInt(id))
+    const clickBack = ()=>{
+        window.history.back()
+    }
     return (
         <Layout>
             <ButtonStyle>
                 <header>
                 <TopBar>
-                    <Icon name='left'></Icon>
+                    <Icon name='left' onClick={clickBack}></Icon>
                     <span>编辑标签</span>
                     <Icon></Icon>
                 </TopBar>
                 </header>
-                {tag ? (<div>
-            <InputStyle>
-            <Input label='标签名' type="text" 
-         value={tag.name}
-         onChange={(e)=>{tagEdit(tag.id,{name:e.target.value})}}>
-        </Input>
-     
-        </InputStyle>
-         <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
-         </div>) : <h1>标签不存在</h1>}
-            </ButtonStyle>
+                {
+                    tag ? 
+                    (<div>
+                        <InputStyle>
+                        <Input label='标签名' type="text" 
+                    value={tag.name}
+                    onChange={(e)=>{tagEdit(tag.id,{name:e.target.value})}}>
+                    </Input>
+                
+                    </InputStyle>
+                    <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
+                    </div>) 
+                : <h1>标签不存在</h1>
+                }
+        </ButtonStyle>
 
            
         </Layout>
