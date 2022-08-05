@@ -14,6 +14,7 @@ import Button from "lib/Button";
 import styled from "styled-components";
 import Input from "lib/Input";
 import Tags from "Views/Tags";
+import { useHistory } from "react-router-dom";
 
 const TopBar = styled.div`
     display: flex;
@@ -101,8 +102,9 @@ const TagEdit = ()=>{
     const {findTag,tagEdit,deleteTag} = useTags();
     let { id } = useParams<Params>(); 
     const tag  = findTag(parseInt(id))
+    const history = useHistory()
     const clickBack = ()=>{
-        window.history.back()
+        history.goBack()
     }
     return (
         <Layout>
