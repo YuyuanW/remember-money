@@ -3,6 +3,7 @@ import useTags from "./Tags/useTags";
 import styled from "styled-components";
 import Icon from "components/Icon";
 import { Link } from "react-router-dom";
+import Button from "lib/Button";
 
 const OlDiv = styled.div`
   position: relative;
@@ -45,28 +46,7 @@ const OlDiv = styled.div`
     }
   }
 `
-const Button = styled.button`
-  border: none;
-  background:#767676;
 
-  font-family: 'Source Han Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
-  /* identical to box height, or 129% */
-  letter-spacing: -0.41px;
-  color: #FFFFFF;
-
-  padding:10px 16px;
-  margin-top: 44px ;
-
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
-
- 
-`
 
 function Tags() {
   const {tags,setTags} = useTags() 

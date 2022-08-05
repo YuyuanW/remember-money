@@ -50,7 +50,7 @@ const Nav = ()=>{
     <NavCom>
       <ul>
         <li>
-          <NavLink to="/tags" activeClassName="selected"><Icon name={'tags'}></Icon><strong>标签</strong></NavLink>
+          <NavLink exact to="/tags" activeClassName="selected"><Icon name={'tags'}></Icon><strong>标签</strong></NavLink>
         </li>
         <li>
             <NavLink to="/change" activeClassName="selected"><Icon name={'money'}></Icon><strong>记账</strong></NavLink>
