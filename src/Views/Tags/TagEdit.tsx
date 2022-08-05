@@ -15,10 +15,9 @@ type Params = {
 }
 
 const TagEdit = ()=>{
-    const {tags} = useTags();
+    const {findId} = useTags();
     let { id } = useParams<Params>(); 
-    const tag  = tags.filter(t=>t.id===parseInt(id))[0]
-
+    const tag  = findId(parseInt(id))
     return (
         <Layout>
             <div>{tag.name}</div>

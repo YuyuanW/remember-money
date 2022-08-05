@@ -12,7 +12,10 @@ const defaultId = [
 const useTags = ()=>{
     const [tags,setTags] = 
     React.useState<{id:number,name:string}[]>(defaultId) 
-    return {tags,setTags}
+    const findId = (id:number)=> tags.filter(t=>t.id===id)[0]
+    
+
+    return {tags,setTags,findId}
 }
 
 export default useTags;
