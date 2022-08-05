@@ -96,31 +96,34 @@ type Params = {
     id : string
 }
 
+
 const TagEdit = ()=>{
-    const {findTag,tagEdit} = useTags();
+    const {findTag,tagEdit,deleteTag} = useTags();
     let { id } = useParams<Params>(); 
     const tag  = findTag(parseInt(id))
     return (
         <Layout>
             <ButtonStyle>
-            <header>
-            <TopBar>
-                <Icon name='left'></Icon>
-                <span>编辑标签</span>
-                <Icon></Icon>
-            </TopBar>
-            </header>
+                <header>
+                <TopBar>
+                    <Icon name='left'></Icon>
+                    <span>编辑标签</span>
+                    <Icon></Icon>
+                </TopBar>
+                </header>
+                {tag ? (<div>
             <InputStyle>
-
-           <Input label='标签名' type="text" 
-                value={tag.name}
-                onChange={(e)=>{tagEdit(tag.id,{name:e.target.value})}}>
-            </Input>
-            
-            </InputStyle>
-            
-                <Button>删除标签</Button>
+            <Input label='标签名' type="text" 
+         value={tag.name}
+         onChange={(e)=>{tagEdit(tag.id,{name:e.target.value})}}>
+        </Input>
+     
+        </InputStyle>
+         <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
+         </div>) : <h1>标签不存在</h1>}
             </ButtonStyle>
+
+           
         </Layout>
     )
     
