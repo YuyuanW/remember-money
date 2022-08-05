@@ -38,7 +38,40 @@ const TopBar = styled.div`
         height: 24px;
     }
 `
+const InputStyle = styled.div`
+    > label{
+        margin-left: 4px;
+        > span{
+            font-family: 'Source Han Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            /* identical to box height, or 100% */
+            display: flex;
+            align-items: center;
+            color: #333333;
 
+            padding:10px 0px;
+            margin:2px 12px;
+        }
+        >input{
+            font-family: 'Source Han Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            color: #333333;
+
+            border:none;s
+           
+            
+        }
+    }
+   
+`
 
 type Params = {
     id : string
@@ -58,9 +91,15 @@ const TagEdit = ()=>{
                 <Icon></Icon>
             </TopBar>
             </header>
+            <InputStyle>
+
            <Input label='标签名' type="text" 
                 value={tag.name}
-                onChange={()=>{}}></Input>
+                onChange={()=>{}}>
+                
+            </Input>
+            
+            </InputStyle>
             <Button>删除标签</Button>
         </Layout>
     )
