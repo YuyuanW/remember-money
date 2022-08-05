@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import useTags from "Views/Tags/useTags";
+import create from "lib/created";
 const _TagsSection = styled.section`
   /* border:1px solid red; */
   max-height: 50vh;
@@ -70,7 +71,7 @@ const TagsSection:React.FC<Props> = (props)=>{
         if(tag===''){
             window.confirm('标签不能为空，请重新输入！')
         }else if(tag!==null){
-            setTags([...tags,{id:Math.random(),name:tag}])
+            setTags([...tags,{id:create(),name:tag}])
         }
     }
     const Light = (tagId: number)=>{
