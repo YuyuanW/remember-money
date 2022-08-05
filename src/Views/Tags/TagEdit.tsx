@@ -20,6 +20,7 @@ const TopBar = styled.div`
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    background: #FFFFFF;
     > span{
         font-family: 'Source Han Sans';
         font-style: normal;
@@ -39,8 +40,12 @@ const TopBar = styled.div`
     }
 `
 const InputStyle = styled.div`
+    box-shadow: 1px 2px 4px rgb(221,221,221);
     > label{
         margin-left: 4px;
+        margin-top: 8px;
+        
+        background: #FFFFFF;
         > span{
             font-family: 'Source Han Sans';
             font-style: normal;
@@ -73,6 +78,20 @@ const InputStyle = styled.div`
    
 `
 
+const ButtonStyle = styled.div`
+    height: 100%;
+    position: relative;
+    background:#F5F5F5;
+    >button{
+        white-space: nowrap;
+        /* border:1px solid red; */
+        background: #767676;
+        border-radius: 4px;
+        position: absolute;
+        bottom: 34px;
+    }
+`
+
 type Params = {
     id : string
 }
@@ -83,7 +102,7 @@ const TagEdit = ()=>{
     const tag  = findId(parseInt(id))
     return (
         <Layout>
-            
+            <ButtonStyle>
             <header>
             <TopBar>
                 <Icon name='left'></Icon>
@@ -100,7 +119,9 @@ const TagEdit = ()=>{
             </Input>
             
             </InputStyle>
-            <Button>删除标签</Button>
+            
+                <Button>删除标签</Button>
+            </ButtonStyle>
         </Layout>
     )
     
