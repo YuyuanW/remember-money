@@ -12,19 +12,21 @@ type Props = {
 }
 
 const NumberSection:React.FC<Props> = (props)=>{
-  const number = props.amount.toString()
-  const setNum = props.onChange
+  const [number,setNum] = React.useState(props.amount.toString())
+  // const number = props.amount.toString()
+  // const setNum = props.onChange
   const numLength = (outProps:string)=>{
-    let value
+    let value :string;
     if(outProps.length > 16){
-      value = parseFloat(outProps.slice(0,17))
+      value = outProps.slice(0,17)
     }else if(outProps.length===0){
-      value = 0
+      value = '0'
     }else{
       console.log(outProps) //存在小数点消失的问题
-      value = parseFloat(outProps)
+      value = outProps
     } 
     setNum(value)
+    props.onChange(parseFloat(value))
   }
 
   const clickButton = (e:React.MouseEvent)=>{
