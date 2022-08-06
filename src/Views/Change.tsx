@@ -5,7 +5,9 @@ import NoteSection from "./Change/NoteSection";
 import NumberSection from "./Change/NumberSection";
 import TagsSection from "./Change/TagsSection";
 import React from "react";
-import { type } from "os";
+import useHistory from "./Change/useHistory";
+
+// import { type } from "os";
 
 const Div =styled.div`
   height: 100%;
@@ -13,6 +15,13 @@ const Div =styled.div`
   display: flex;
   flex-direction: column;
 `
+const defaultData = {
+  tagsId:[] as number[],
+  notes:'',
+  cate : '-' as Cate,
+  amount : 0
+}
+
 type Cate = '-' | '+'
 function Change() {
   const [state,setState] = React.useState(
@@ -26,13 +35,23 @@ function Change() {
   const change = (value:Partial<typeof state>)=>{
     setState({...state,...value})
   }
+
+  const {addHis}  = useHistory()
+  const submit = ()=>{
+    if(addHis(state)){
+      alert('保存成功！')
+      setState(defaultData)
+    }
+    
+  }
     return  (
       <Layout>
+        {JSON.stringify(state)}
         <Div>
           <TagsSection selected={state.tagsId} onChange={(tagsId)=>change({tagsId})} />
           <NoteSection notes = {state.notes} onChange={(notes)=>change({notes})}/>
           <CategorySection cate={state.cate} onChange={(cate)=>change({cate})}/>
-          <NumberSection amount={state.amount} onChange={(amount)=>change({amount})}/>
+          <NumberSection amount={state.amount} onChange={(amount)=>change({amount})} onOk={submit}/>
           
         </Div>
       </Layout>

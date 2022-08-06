@@ -4,9 +4,11 @@ import _NumberSection from "./NumberSec/_NumberSection";
 import { switcher } from "./switch";
 
 
+
 type Props = {
   amount : number,
   onChange : (amount:number)=>void
+  onOk?:()=>void;
 }
 
 const NumberSection:React.FC<Props> = (props)=>{
@@ -28,11 +30,12 @@ const NumberSection:React.FC<Props> = (props)=>{
   const clickButton = (e:React.MouseEvent)=>{
     const text =  (e.target as  HTMLButtonElement).textContent
     if(!text){return}
-    if('0123456789'.split('').concat(['删除','清空','OK','.']).indexOf(text) >=0){
+    if('0123456789'.split('').concat(['删除','清空','.']).indexOf(text) >=0){
       numLength(switcher(text,number)!)
     }
     
   }
+  
   return (
     <_NumberSection>
       <div className="output">{number}</div>
@@ -51,7 +54,7 @@ const NumberSection:React.FC<Props> = (props)=>{
         <button>8</button>
         <button>9</button>
         <button>×</button>
-        <button className="ok">OK</button>
+        <button className="ok" onClick={props.onOk}>OK</button>
         <button>0</button>
         <button>.</button>
         <button>%</button>
