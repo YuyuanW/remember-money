@@ -49,7 +49,7 @@ const OlDiv = styled.div`
 
 
 function Tags() {
-  const {tags,setTags} = useTags() 
+  const {tags,newTag} = useTags() 
   return (
     <Layout>
       <OlDiv>
@@ -58,7 +58,7 @@ function Tags() {
             <Link to={'/tags/'+tag.id}><span>{tag.name}</span><Icon name="right" /></Link>
             </li>)}
         </ol>
-        <Button><span>新建标签</span></Button>
+        <Button onClick={newTag}><span>新建标签</span></Button>
         </OlDiv>
     </Layout>
   );

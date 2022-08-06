@@ -63,17 +63,9 @@ const _TagsSection = styled.section`
 
 type Props = {selected:number[],onChange:(selected:number[])=>void}
 const TagsSection:React.FC<Props> = (props)=>{
-    const {tags,setTags} = useTags() 
+    const {tags,setTags,newTag} = useTags() 
     const tagsLight = props.selected
     const setLight = props.onChange
-    const newTag = ()=>{
-        const tag = window.prompt('新标签为：')
-        if(tag===''){
-            window.confirm('标签不能为空，请重新输入！')
-        }else if(tag!==null){
-            setTags([...tags,{id:create(),name:tag}])
-        }
-    }
     const Light = (tagId: number)=>{
         if(tagsLight.indexOf(tagId)>=0){ setLight(tagsLight.filter(t=>t!==tagId))  }
         else{setLight([...tagsLight,tagId])}

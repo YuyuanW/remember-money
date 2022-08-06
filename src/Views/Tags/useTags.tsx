@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import create from "lib/created";
+// import { json } from "stream/consumers";
+import useTagUpdate from "./tagUpdate";
 
-const defaultId = [
-    {id:create(),name:'衣'},
-    {id:create(),name:'食'},
-    {id:create(),name:'住'},
-    {id:create(),name:'行'},
-]
 
 
 const useTags = ()=>{
     const [tags,setTags] = 
-    React.useState<{id:number,name:string}[]>(defaultId) 
+    React.useState<{id:number,name:string}[]>([]) 
+    useEffect(()=>{
+        let localTag = JSON.parse( window.localStorage.getItem('tag') || '[]' )
+        if(localTag.length === 0){
+            localTag = [
+                {id:create(),name:'衣'},
+                {id:create(),name:'食'},
+                {id:create(),name:'住'},
+                {id:create(),name:'行'},
+            ]
+        }
+        setTags(localTag) 
+    },[])
+    useTagUpdate(()=>{window.localStorage.setItem('tag',JSON.stringify(tags))},[tags])
     const findTag = (id:number)=> tags.filter(t=>t.id===id)[0]
     const findIndex = (id:number)=>{
         let result = -1
@@ -37,7 +46,15 @@ const useTags = ()=>{
         // tagsClone.splice(index,1)
         // setTags(tagsClone)
     }
-    return {tags,setTags,findTag,findIndex,tagEdit,deleteTag}
+    const newTag = ()=>{
+        const tagName = window.prompt('新标签为：')
+        if(tagName===''){
+            window.confirm('标签不能为空，请重新输入！')
+        }else if(tagName!==null){
+            setTags([...tags,{id:create(),name:tagName}])
+        }
+    }
+    return {tags,setTags,findTag,findIndex,tagEdit,deleteTag,newTag}
 }
 
 export default useTags;
