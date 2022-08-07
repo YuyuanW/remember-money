@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useTagUpdate from "Views/Tags/tagUpdate";
 
-type HisItems = newHisItem & {
+export type HisItems = newHisItem & {
     // tagsId:number[],
     // notes:string,
     // cate : '-' | '+' ,

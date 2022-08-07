@@ -3,8 +3,9 @@ import Layout from "components/Layout";
 import React from "react";
 import styled from "styled-components";
 import CategorySection from "./Change/CategorySection";
-import useHistory from "./Change/useHistory";
+import useHistory, { HisItems } from "./Change/useHistory";
 import useTags from "./Tags/useTags";
+import day from 'dayjs';
 
 const PageStyle = styled.section`
   background: #F5F5F5;
@@ -16,10 +17,21 @@ const CateStyle = styled.div`
     background: #FFFFFF;
   }
 `
+const Header = styled.h3`
+  background: #F5F5F5;
+  font-family: 'Source Han Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  color: #000000;
+`
 
 const ChangeStyle = styled.div`
   background: white;
   > div{
+    > div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,6 +71,8 @@ const ChangeStyle = styled.div`
       color: #000000;
     }
   }
+  }
+  
   
 `
 
@@ -67,6 +81,27 @@ function Money() {
   const {his} = useHistory()
   const {getName} = useTags()
   const selectedCate = his.filter(h=>h.cate === state)
+  const hash:{[key:string]:HisItems[]} = {}
+  selectedCate.map(i=>{
+    const key = day(i.createdTime).format('YYYY-MM-DD')
+    if(!(key in hash)){
+      hash[key] = []
+    }
+    hash[key].push(i)
+  })
+  const arr = Object.entries(hash).sort((a,b)=>{
+    if(a[0]===b[0]) return 0;
+    if(a[0]>b[0]) return -1;
+    if(a[0]<b[0]) return 1;
+    return 0
+  })
+
+  let addAmount = (a:HisItems[])=>{
+    let amount = 0
+    a.map(ar=>amount+=ar.amount)
+    return amount
+  }
+  
   return (
     <Layout>
       <PageStyle>
@@ -75,7 +110,9 @@ function Money() {
         </CateStyle>
       
       <ChangeStyle>
-        {selectedCate.map(t=>{
+        {arr.map(a=><div key={a[0]}>
+          <Header><div>{a[0]}</div> <div>{addAmount(a[1])}</div></Header>
+          {a[1].map(t=>{
           return <div key={t.createdTime} className='tags'>
           {t.tagsId.map(item=><span key={item} className='name'>{getName(item)}</span>)}
           {t.notes && <div className="note">
@@ -88,6 +125,8 @@ function Money() {
           {/* <hr/>
           {t.createdTime.split('T')[0]} */}
         </div>})}
+        </div>)}
+        
       </ChangeStyle>
       </PageStyle>
     </Layout>
