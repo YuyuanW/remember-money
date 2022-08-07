@@ -45,7 +45,7 @@ function Change() {
     
   }
     return  (
-      <Layout>
+      <Layout scrollTop={99999}>
         <Div>
           <TagsSection selected={state.tagsId} onChange={(tagsId)=>change({tagsId})} />
           <NoteSection notes = {state.notes} onChange={(notes)=>change({notes})}/>
