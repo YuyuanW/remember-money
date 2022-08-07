@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 
+
 const _CategorySection = styled.section`
   background-color: rgb(196,196,196);
   > ul {
@@ -48,21 +49,39 @@ type Props = {
 }
 const CategorySection:React.FC<Props> = (props)=>{
   const [cateList] = React.useState<('-'|'+')[]>(['-','+'])
-  const hash = {'-':'支出','+':'收入'}
-  // const [cateStatus,setStatus] = React.useState('-')
-  const cateStatus = props.cate;
-  const setStatus = props.onChange;
-  return (
-    <_CategorySection>
-      <ul>
-        {cateList.map(
-          c=>
-          <li key={c} className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
-            {hash[c]}
-          </li>
-      )}
-      </ul>
-    </_CategorySection>
-  )
+        const hash = {'-':'支出','+':'收入'}
+        // const [cateStatus,setStatus] = React.useState('-')
+        const cateStatus = props.cate;
+        const setStatus = props.onChange;
+        return (
+          <_CategorySection>
+            <ul>
+              {cateList.map(
+                c=>
+                <li key={c} className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
+                  {hash[c]}
+                </li>
+            )}
+            </ul>
+          </_CategorySection>
+        )
 }
+  // const [cateList] = React.useState<('-'|'+')[]>(['-','+'])
+  // const hash = {'-':'支出','+':'收入'}
+  // // const [cateStatus,setStatus] = React.useState('-')
+  // const cateStatus = props.cate;
+  // const setStatus = props.onChange;
+  // return (
+  //   <_CategorySection>
+  //     <ul>
+  //       {cateList.map(
+  //         c=>
+  //         <li key={c} className={cateStatus===c? 'selected' : ''} onClick={()=>setStatus(c)}>
+  //           {hash[c]}
+  //         </li>
+  //     )}
+  //     </ul>
+  //   </_CategorySection>
+  // )
+
 export default CategorySection;

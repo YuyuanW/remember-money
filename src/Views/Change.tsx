@@ -46,13 +46,11 @@ function Change() {
   }
     return  (
       <Layout>
-        {JSON.stringify(state)}
         <Div>
           <TagsSection selected={state.tagsId} onChange={(tagsId)=>change({tagsId})} />
           <NoteSection notes = {state.notes} onChange={(notes)=>change({notes})}/>
           <CategorySection cate={state.cate} onChange={(cate)=>change({cate})}/>
           <NumberSection amount={state.amount} onChange={(amount)=>change({amount})} onOk={submit}/>
-          
         </Div>
       </Layout>
     );
