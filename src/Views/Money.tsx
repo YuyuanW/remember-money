@@ -66,6 +66,7 @@ function Money() {
   const [state,setState] = React.useState<'-' | '+'>('-')
   const {his} = useHistory()
   const {getName} = useTags()
+  const selectedCate = his.filter(h=>h.cate === state)
   return (
     <Layout>
       <PageStyle>
@@ -74,7 +75,7 @@ function Money() {
         </CateStyle>
       
       <ChangeStyle>
-        {his.map(t=>{
+        {selectedCate.map(t=>{
           return <div key={t.createdTime} className='tags'>
           {t.tagsId.map(item=><span key={item} className='name'>{getName(item)}</span>)}
           {t.notes && <div className="note">
