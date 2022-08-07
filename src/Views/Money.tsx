@@ -18,6 +18,12 @@ const CateStyle = styled.div`
   }
 `
 const Header = styled.h3`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding:10px 16px;
+
   background: #F5F5F5;
   font-family: 'Source Han Sans';
   font-style: normal;
@@ -35,7 +41,6 @@ const ChangeStyle = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
     padding: 10px 16px;
     >.name{
       font-family: 'Source Han Sans';
@@ -47,6 +52,14 @@ const ChangeStyle = styled.div`
       color: #000000;
 
       padding-right: 13px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      > span{
+        padding-right: 4px;
+      }
     }
     >.note{
       margin-right: auto;  //加上这一句居然就自动靠左了，flex布局啊啊啊啊
@@ -59,6 +72,10 @@ const ChangeStyle = styled.div`
       line-height: 22px;
       letter-spacing: -0.41px;
       color: #999999;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     > .amount{
       font-family: 'Source Han Sans';
@@ -111,10 +128,11 @@ function Money() {
       
       <ChangeStyle>
         {arr.map(a=><div key={a[0]}>
-          <Header><div>{a[0]}</div> <div>{addAmount(a[1])}</div></Header>
+          <Header><div>{a[0]}</div> <div>￥{addAmount(a[1])}</div></Header>
           {a[1].map(t=>{
           return <div key={t.createdTime} className='tags'>
-          {t.tagsId.map(item=><span key={item} className='name'>{getName(item)}</span>)}
+          <div className='name'>{t.tagsId.map(item=><span key={item} >{getName(item)}</span>)}</div>
+          
           {t.notes && <div className="note">
             {t.notes}
           </div>}
