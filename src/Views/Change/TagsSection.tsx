@@ -14,6 +14,9 @@ const _TagsSection = styled.section`
   > ol{
     overflow-y: scroll; 
     overflow-x: hidden;
+    &::-webkit-scrollbar {
+    display: none;
+  }
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
