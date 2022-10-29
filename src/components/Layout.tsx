@@ -4,11 +4,14 @@ import { useEffect } from "react";
 import React from "react";
 const Div = styled.div`
 height: 100vh;
+overflow-y:hidden ;
 display: flex;
 flex-direction: column;
 `
 
 const Content = styled.div`
+overflow-y: scroll;
+
 flex-grow: 1;  //用增长系数来分配剩余空间
 `
 

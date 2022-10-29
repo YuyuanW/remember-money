@@ -17,6 +17,11 @@ body{
   font-family:$font-hei;
   font-size: 16px;
   line-height: 1.2;
+
+}
+body{
+  height: 100vh;
+  overflow: hidden;
 }
 svg{
   width:1em;

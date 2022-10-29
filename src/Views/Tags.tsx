@@ -7,7 +7,10 @@ import Button from "lib/Button";
 
 const OlDiv = styled.div`
   position: relative;
+  /* overflow: hidden; */
   > ol{
+    overflow-y: scroll;
+    /* border:1px solid red; */
     > li {
       border-bottom: 2px solid #DDDDE0;
       
