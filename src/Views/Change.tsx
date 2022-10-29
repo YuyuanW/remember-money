@@ -10,11 +10,14 @@ import useHistory from "./Change/useHistory";
 // import { type } from "os";
 
 const Div =styled.div`
+  overflow: hidden;
   height: 100%;
   /* border:5px solid yellow; */
   display: flex;
   flex-direction: column;
 `
+
+
 const defaultData = {
   tagsId:[] as number[],
   notes:'',

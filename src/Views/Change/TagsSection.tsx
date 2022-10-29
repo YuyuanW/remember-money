@@ -4,7 +4,7 @@ import useTags from "Views/Tags/useTags";
 import create from "lib/created";
 const _TagsSection = styled.section`
   /* border:1px solid red; */
-  max-height: 50vh;
+  max-height: 40vh;
   flex-grow:1;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,8 @@ const _TagsSection = styled.section`
   align-items: flex-start;
   background: #FFFFFF;
   > ol{
+    overflow-y: scroll; 
+    overflow-x: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

@@ -8,11 +8,15 @@ import useTags from "./Tags/useTags";
 import day from 'dayjs';
 
 const PageStyle = styled.section`
+/* border:1px solid red; */
+max-height:80vh;
+  position: relative;
   background: #F5F5F5;
   height:100%;
 `
 
 const CateStyle = styled.div`
+height: 64px;
   > section {
     background: #FFFFFF;
   }
@@ -35,6 +39,10 @@ const Header = styled.h3`
 `
 
 const ChangeStyle = styled.div`
+/* border:1px solid blue; */
+  /* max-height: 60vh; */
+  max-height: 80vh;
+  overflow-y: scroll;
   background: white;
   > div{
     > div{

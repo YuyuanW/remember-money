@@ -6,11 +6,10 @@ const Div = styled.div`
 height: 100vh;
 overflow-y:hidden ;
 display: flex;
-flex-direction: column;
+flex-direction: column-reverse;
 `
 
 const Content = styled.div`
-overflow-y: scroll;
 
 flex-grow: 1;  //用增长系数来分配剩余空间
 `
@@ -30,10 +29,11 @@ const Layout:React.FC<Props> = (props)=>{
     ,[props.scrollTop])
     return (
         <Div>
+          <Nav/>
           <Content ref={mainRef}>
             {props.children}
           </Content>
-          <Nav/>
+          
         </Div>
     );
 }
